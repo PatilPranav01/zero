@@ -1,0 +1,451 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* --- CSS Variables for a modern theme --- */
+:root {
+  --primary-color: #6a5af9;
+  --primary-hover-color: #5a4af5;
+  --secondary-color: #a1a1aa;
+  --text-dark: #18181b;
+  --text-light: #71717a;
+  --bg-color: #f4f4f5;
+  --card-bg: #ffffff;
+  --border-color: #e4e4e7;
+  --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --border-radius: 12px;
+}
+
+/* --- Global Resets and Base Styles --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-dark);
+  line-height: 1.7;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* --- Navbar --- */
+.navbar {
+  background: var(--card-bg);
+  padding: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.nav-item button {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-light);
+  padding-bottom: 0.5rem;
+  position: relative;
+  transition: all 0.3s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-item button::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.nav-item button:hover, .nav-item button.active {
+  color: var(--primary-color);
+}
+
+.nav-item button:hover::after, .nav-item button.active::after {
+  width: 100%;
+}
+
+.nav-toggle {
+    display: none;
+}
+
+/* --- Main Section Layout --- */
+.main-section {
+  padding: 6rem 0;
+  overflow: hidden;
+}
+
+section {
+  width: 100%;
+}
+
+main {
+  width: 100%;
+}
+
+.grid {
+  display: grid;
+  gap: 5rem;
+  align-items: center;
+}
+
+.grid-two-cols, .grid-two-column { /* Supporting legacy classname */
+  grid-template-columns: 1fr 1fr;
+}
+
+.section-content {
+  animation: slideInUp 0.8s ease-out;
+}
+
+.section-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 1s ease-out;
+}
+
+.section-image img {
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.section-image img:hover {
+  transform: scale(1.05) rotate(2deg);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* --- Buttons --- */
+.btn {
+  padding: 0.9rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  display: inline-block;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary {
+  background-image: linear-gradient(to right, #6a5af9, #d669ff);
+  color: white;
+  background-size: 200% auto;
+}
+
+.btn-primary:hover {
+  background-position: right center;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px 0 rgba(106, 90, 249, 0.45);
+}
+
+
+/* --- Styles for original Register/Login Forms --- */
+.section-registration {
+  padding: 4rem 0;
+}
+
+.section-registration h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.section-registration form div {
+  margin-bottom: 1.5rem;
+}
+
+.section-registration form label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-light);
+}
+
+.section-registration form input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9fafb;
+  transition: all 0.3s ease;
+}
+
+.section-registration form input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  background-color: var(--card-bg);
+  box-shadow: 0 0 0 3px rgba(106, 90, 249, 0.15);
+}
+
+.section-registration form button[type="submit"] {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  letter-spacing: 0.5px;
+  background-image: linear-gradient(to right, #6a5af9, #d669ff);
+  color: white;
+  background-size: 200% auto;
+}
+
+.section-registration form button[type="submit"]:hover {
+  background-position: right center;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px 0 rgba(106, 90, 249, 0.45);
+}
+
+
+/* --- Styles for NEW Contact Form --- */
+.auth-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px); /* Full height minus navbar */
+  padding: 2rem 0;
+}
+
+.form-container {
+  background: var(--card-bg);
+  padding: 2.5rem 3rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 480px;
+  border-top: 4px solid var(--primary-color);
+  animation: slideInUp 0.7s ease-out;
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+.form-container .form-subtitle {
+  text-align: center;
+  color: var(--text-light);
+  margin-bottom: 2.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.input-group {
+  position: relative;
+}
+
+.input-group .input-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--secondary-color);
+  pointer-events: none;
+  transition: color 0.3s ease;
+}
+
+.form-group input, .form-group textarea {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem; /* Left padding for icon */
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9fafb;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  background-color: var(--card-bg);
+  box-shadow: 0 0 0 3px rgba(106, 90, 249, 0.15);
+}
+
+.form-group input:focus ~ .input-icon {
+  color: var(--primary-color);
+}
+
+.form-group textarea {
+    padding: 1rem; /* No icon for textarea */
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-submit-btn {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.1rem;
+}
+
+/* --- Page Specific Styles --- */
+.hero-text h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  margin-bottom: 2.5rem;
+  max-width: 550px;
+}
+
+.services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.page-title {
+  text-align: center;
+  margin-bottom: 4rem;
+  font-size: 2.5rem;
+}
+
+.service-card {
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+    text-align: center;
+    border-bottom: 4px solid transparent;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-color);
+}
+
+.service-card .icon {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    background-image: linear-gradient(to right, var(--primary-color), #d669ff);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.service-card p {
+    color: var(--text-light);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+    .grid-two-cols, .grid-two-column {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .section-content, .section-registration > .container > div {
+        align-items: center;
+    }
+    .section-image {
+        order: -1;
+        margin-bottom: 3rem;
+    }
+    .hero-text {
+        align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: var(--card-bg);
+        box-shadow: var(--shadow);
+        border-top: 1px solid var(--border-color);
+    }
+    .nav-menu.active {
+        display: flex;
+    }
+    .nav-item {
+        width: 100%;
+        text-align: center;
+    }
+    .nav-item button {
+        display: block;
+        width: 100%;
+        padding: 1rem;
+    }
+    .nav-item button::after {
+        display: none;
+    }
+    .nav-toggle {
+        display: block;
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--text-dark);
+    }
+    .form-container {
+        padding: 2rem;
+    }
+    .hero-text h1 {
+      font-size: 2.5rem;
+    }
+}
